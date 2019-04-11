@@ -22,7 +22,7 @@ script:
   - echo $PYTHONVER
 
 after_success: 
-  - if [ "$PYTHONVER" = "3" ]; then python3 -m codecov --token 2b1a0cc9-52e4-4942-8816-8554a1f5d0f1; fi
+  - if [ "$PYTHONVER" = "3" ]; then python3 -m codecov --token 3fe34ae3-3af3-4c6f-acb8-97b1d0334bff; fi
 
 notifications:
   email: false
