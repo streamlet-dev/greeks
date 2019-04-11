@@ -8,8 +8,7 @@ greeks
 
 derivatives
 
-|Build Status| |GitHub| |codecov| |BCH compliance| |PyPI| |PyPI|
-|Docs|
+|Build Status| |GitHub| |codecov| |BCH compliance| |PyPI| |Docs|
 
 .. |Build Status| image:: https://travis-ci.org/timkpaine/greeks.svg?branch=master
    :target: https://travis-ci.org/timkpaine/greeks
@@ -20,8 +19,6 @@ derivatives
 .. |BCH compliance| image:: https://bettercodehub.com/edge/badge/timkpaine/greeks?branch=master
    :target: https://bettercodehub.com/
 .. |PyPI| image:: https://img.shields.io/pypi/l/greeks.svg
-   :target: https://pypi.python.org/pypi/greeks
-.. |PyPI| image:: https://img.shields.io/pypi/v/greeks.svg
    :target: https://pypi.python.org/pypi/greeks
 .. |Docs| image:: https://img.shields.io/readthedocs/greeks.svg
    :target: https://greeks.readthedocs.io
