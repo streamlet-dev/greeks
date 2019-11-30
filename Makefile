@@ -11,7 +11,7 @@ lint: ## run linter
 	flake8 greeks 
 
 fix:  ## run autopep8/tslint fix
-	autopep8 --in-place -r -a -a tributary/
+	autopep8 --in-place -r -a -a greeks/
 
 annotate: ## MyPy type annotation check
 	mypy -s greeks  
