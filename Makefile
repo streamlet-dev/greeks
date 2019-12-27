@@ -2,10 +2,10 @@ build:  ## Build the repository
 	python3 setup.py build 
 
 tests: ## Clean and Make unit tests
-	python3 -m pytest -v tests --cov=greeks
+	python3 -m pytest -v greeks/tests --cov=greeks
 
 test: lint ## run the tests for travis CI
-	@ python3 -m pytest -v tests --cov=greeks
+	@ python3 -m pytest -v greeks/tests --cov=greeks
 
 lint: ## run linter
 	flake8 greeks 
