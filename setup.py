@@ -20,9 +20,19 @@ version = get_version(pjoin(here, name, '_version.py'))
 with open(pjoin(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-with open(pjoin(here, 'requirements.txt'), encoding='utf-8') as f:
-    requires = f.read().split()
+requires = [
+    'tributary>=0.0.6',
+]
 
+requires_dev = [
+    'flake8>=3.7.8',
+    'mock',
+    'pybind11>=2.4.0',
+    'pytest>=4.3.0',
+    'pytest-cov>=2.6.1',
+    'Sphinx>=1.8.4',
+    'sphinx-markdown-builder>=0.5.2',
+] + requires
 
 setup(
     name=name,
@@ -34,7 +44,9 @@ setup(
     author_email='timothy.k.paine@gmail.com',
     license='Apache 2.0',
     install_requires=requires,
-    extras_require={'dev': requires + ['pytest', 'pytest-cov', 'flake8', 'codecov', 'mock', 'autopep8', 'bumpversion']},
+    extras_require={
+        'dev': requires_dev,
+    },
 
     classifiers=[
         'Development Status :: 3 - Alpha',
