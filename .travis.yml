@@ -19,17 +19,17 @@ addons:
     packages:
       - python
       - graphviz
-      - python2
 
 branches:
   only:
   - master
 
 install: 
-  - python3 -m pip install -r requirements.txt && python3 -m pip install -e .[dev]
+  - python3 -m pip install -e .[dev]
 
 script: 
-  - make test
+  - make lint
+  - make tests
 
 after_success: 
   - python3 -m codecov --token 3fe34ae3-3af3-4c6f-acb8-97b1d0334bff
