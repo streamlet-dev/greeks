@@ -36,13 +36,6 @@ jobs:
     - name: Test
       run: |
         make tests
-      if: ${{ matrix.os != 'ubuntu-latest' }}
-
-    - name: Test
-      run: |
-        make dockerup && make tests && make dockerdown
-      if: ${{ matrix.os == 'ubuntu-latest' }}
-
 
     - name: Twine check
       run: |
