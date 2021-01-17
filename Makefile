@@ -2,16 +2,13 @@ build:  ## Build the repository
 	python3 setup.py build 
 
 tests: ## Clean and Make unit tests
-	python3 -m pytest -v greeks/tests --cov=greeks
-
-test: lint ## run the tests for travis CI
-	@ python3 -m pytest -v greeks/tests --cov=greeks
+	python -m pytest -vvv greeks --cov=greeks --junitxml=python_junit.xml --cov-report=xml --cov-branch
 
 lint: ## run linter
-	flake8 greeks 
+	python -m flake8 greeks setup.py
 
-fix:  ## run autopep8/tslint fix
-	autopep8 --in-place -r -a -a greeks/
+fix:  ## run black fix
+	python -m black greeks/ setup.py
 
 annotate: ## MyPy type annotation check
 	mypy -s greeks  
@@ -34,11 +31,13 @@ docs:  ## make documentation
 	make -C ./docs html
 	open ./docs/_build/html/index.html
 
-dist:  ## dist to pypi
+dist:  ## create dists
 	rm -rf dist build
-	python3 setup.py sdist
-	python3 setup.py bdist_wheel
-	twine check dist/* && twine upload dist/*
+	python setup.py sdist bdist_wheel
+	python -m twine check dist/*
+	
+publish: dist  ## dist to pypi
+	python -m twine upload dist/* --skip-existing
 
 # Thanks to Francoise at marmelab.com for this
 .DEFAULT_GOAL := help
