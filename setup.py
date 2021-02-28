@@ -21,7 +21,7 @@ with open(pjoin(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 requires = [
-    'tributary>=0.1.0',
+    'tributary>=0.1.5',
 ]
 
 requires_dev = [
