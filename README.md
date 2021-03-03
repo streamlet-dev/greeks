@@ -1,5 +1,5 @@
 # greeks
-derivatives
+`greeks` is a library for modeling financial instruments using lazy and/or streaming graphs.
 
 [![Build Status](https://github.com/timkpaine/greeks/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/timkpaine/greeks/actions?query=workflow%3A%22Build+Status%22)
 [![Coverage](https://codecov.io/gh/timkpaine/greeks/branch/main/graph/badge.svg)](https://codecov.io/gh/timkpaine/greeks)
@@ -8,7 +8,9 @@ derivatives
 [![Docs](https://img.shields.io/readthedocs/greeks.svg)](https://greeks.readthedocs.io)
 
 
-## installation
+## Installation
 
 `pip install greeks`
 
+## Overview
+`greeks` is built on [tributary](https://github.com/timkpaine/tributary), a library for constructing dataflow graphs in Python.
