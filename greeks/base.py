@@ -21,17 +21,20 @@ class Point(Node):
             super().__init__(name=name, callable=datetime.now)
 
     def node(self):
-        '''for symmetry'''
+        """for symmetry"""
         return self
+
 
 class Timeseries(object):
     def __init__(self, env=None, name="", callable=None, callable_kwargs=None):
         self._env = env or Env()
         self._curve = pd.Series(dtype=float, index=pd.DatetimeIndex([]))
-        self._value = Node(name=name or "Point",
-                           callable=callable or (lambda dt_node: self._getLast(dt_node.eval())),
-                           callable_kwargs=callable_kwargs or {"dt_node": self._env.now()},
-                           dynamic=True)
+        self._value = Node(
+            name=name or "Point",
+            callable=callable or (lambda dt_node: self._getLast(dt_node.eval())),
+            callable_kwargs=callable_kwargs or {"dt_node": self._env.now()},
+            dynamic=True,
+        )
 
     def _getLast(self, dt):
         seq = self._curve[self._curve.index <= dt].index

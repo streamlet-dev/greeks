@@ -17,5 +17,14 @@ def discount(start, end, asset, risk_free_rate, compounding):
     # TODO if (end - start) > term, rate is flat after
     if compounding.value() == Compounding.CONTINUOUS:
         # continuous compounding
-        return asset.value() / (math.e) ** (1.0 + risk_free_rate.value() * ((end.value() - start.value()).total_seconds() / compounding.value().value))
-    return asset.value() / (1.0 + risk_free_rate.value()) ** ((end.value() - start.value()).total_seconds() / compounding.value().value)
+        return asset.value() / (math.e) ** (
+            1.0
+            + risk_free_rate.value()
+            * (
+                (end.value() - start.value()).total_seconds()
+                / compounding.value().value
+            )
+        )
+    return asset.value() / (1.0 + risk_free_rate.value()) ** (
+        (end.value() - start.value()).total_seconds() / compounding.value().value
+    )
