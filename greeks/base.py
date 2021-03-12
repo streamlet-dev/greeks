@@ -101,6 +101,13 @@ class Point(Node):
 
         return seq.index[-1], seq.iloc[-1]
 
+    def _selfdep(self):
+        '''am I my own dependency'''
+        dep_vals = list(self._dependencies.values())[0]
+        args = dep_vals[0]
+        kwargs = dep_vals[1].values()
+        return self in args or self in kwargs
+
     def value(self, at=None):
         '''get value. if `at`, will get as of that time. otherwise, will get as of env.now'''
         if at:
