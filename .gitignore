@@ -174,4 +174,5 @@ docs/index.md
 tributary
 examples/greeks
 examples/tributary
+*.xml
 
