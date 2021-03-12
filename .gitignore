@@ -172,4 +172,6 @@ tmp2.py
 docs/api/
 docs/index.md
 tributary
-examples
+examples/greeks
+examples/tributary
+
