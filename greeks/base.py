@@ -64,7 +64,13 @@ class Point(Node):
             # else use timestamp
             values = [index[0]]
 
+        # timeseries of internal values stored as series
         self._curve = pd.Series(values, index=index)
+
+        # timeseries of dirty values (for lazy recalculate) stored as series of bools
+        self._dirty_curve = pd.Series([False], index=index)
+
+        # Call to Node init
         super().__init__(name=name, callable=self._get, callable_kwargs=callable_kwargs)
 
     def _get(self, at):
@@ -121,8 +127,8 @@ class Point(Node):
         self._curve.sort_index(inplace=True)
 
         # mark myself as dirty
-        super().setValue(value)
-        # self._dirty = True
+        # super().setValue(value)
+        self._dirty = True
 
     def values(self):
         '''return series'''
@@ -136,10 +142,10 @@ class Point(Node):
 class Timeseries(Point):
     def __init__(self, env, name="", value=None, at=None, callable=None, callable_kwargs=None):
         self._env = env or Env()
-        self._curve = pd.Series([value], index=pd.DatetimeIndex([at.value()])) if at and value else pd.Series(dtype=float, index=pd.DatetimeIndex([]))
+        self._curve = pd.Series([value], index=pd.DatetimeIndex([at.value()])) if at is not None and value is not None else pd.Series(dtype=float, index=pd.DatetimeIndex([]))
         super(Point, self).__init__(
             name=name or "Point",
             callable=callable or self._get,
-            callable_kwargs=callable_kwargs or {"at": at if at else self._env.now()},
+            callable_kwargs=callable_kwargs or {"at": at if at is not None else self._env.now()},
             dynamic=True,
         )
