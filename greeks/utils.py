@@ -31,11 +31,7 @@ def discount(start, end, now, asset, risk_free_rate, compounding):
         # continuous compounding based on spot price of asset
         return asset_value / (math.e) ** (
             1.0
-            + rfr
-            * (
-                (asof - start.value()).total_seconds()
-                / compounding_value.value
-            )
+            + rfr * ((asof - start.value()).total_seconds() / compounding_value.value)
         )
     # return normal compounding of asset
     return asset_value / (1.0 + rfr) ** (
@@ -45,4 +41,6 @@ def discount(start, end, now, asset, risk_free_rate, compounding):
 
 def discount_vs_starting(start, end, now, asset, risk_free_rate, compounding):
     # TODO if (end - start) > term, rate is flat after
-    return discount(start, end, now, asset, risk_free_rate, compounding) - asset.value(at=start.value())
+    return discount(start, end, now, asset, risk_free_rate, compounding) - asset.value(
+        at=start.value()
+    )

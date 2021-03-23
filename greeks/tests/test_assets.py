@@ -11,7 +11,9 @@ class TestForward:
         e.now().setValue(start())
         rfr = gk.Rate(env=e, value=0.05, at=start)
         asset = gk.Equity(env=e, value=200, at=start)
-        n = gk.Forward(env=e, start=start, end=end, underlying=asset, risk_free_rate=rfr)
+        n = gk.Forward(
+            env=e, start=start, end=end, underlying=asset, risk_free_rate=rfr
+        )
 
         assert -0.0001 < n() < 0.0001
 

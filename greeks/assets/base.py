@@ -14,7 +14,13 @@ class Equity(Timeseries):
 
 class Forward(Timeseries):
     def __init__(
-        self, env, start, end, underlying, risk_free_rate, compounding=Compounding.YEARLY
+        self,
+        env,
+        start,
+        end,
+        underlying,
+        risk_free_rate,
+        compounding=Compounding.YEARLY,
     ):
         self._start = start
         self._end = end
@@ -31,6 +37,8 @@ class Forward(Timeseries):
                 "now": env.now(),
                 "asset": self._underlying,
                 "risk_free_rate": self._risk_free_rate,
-                "compounding": Timeseries(env=env, name="Compounding", value=compounding, at=start),
+                "compounding": Timeseries(
+                    env=env, name="Compounding", value=compounding, at=start
+                ),
             },
         )

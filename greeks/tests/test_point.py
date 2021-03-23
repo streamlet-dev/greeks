@@ -7,6 +7,7 @@ today = datetime.today()
 tomorrow = today + timedelta(days=1)
 env = gk.Env(today)
 
+
 class TestPoint:
     def test_point(self):
         pt = gk.Point(env=env)
