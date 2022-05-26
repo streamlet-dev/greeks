@@ -5,7 +5,6 @@
 [![Coverage](https://codecov.io/gh/timkpaine/greeks/branch/main/graph/badge.svg)](https://codecov.io/gh/timkpaine/greeks)
 [![PyPI](https://img.shields.io/pypi/l/greeks.svg)](https://pypi.python.org/pypi/greeks)
 [![PyPI](https://img.shields.io/pypi/v/greeks.svg)](https://pypi.python.org/pypi/greeks)
-[![Docs](https://img.shields.io/readthedocs/greeks.svg)](https://greeks.readthedocs.io)
 
 
 ## Installation
