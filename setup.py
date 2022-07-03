@@ -42,7 +42,7 @@ setup(
     version=version,
     description="Analytics library",
     long_description=long_description,
-    url="https://github.com/timkpaine/{name}".format(name=name),
+    url="https://github.com/streamlet-dev/{name}".format(name=name),
     author="Tim Paine",
     author_email="timothy.k.paine@gmail.com",
     license="Apache 2.0",
